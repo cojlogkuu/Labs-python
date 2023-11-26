@@ -9,7 +9,7 @@ class BankAccount:
     def __init__(self, owner_name, balance = 0.0):
         self.__id = self.check_id(self.get_id())
         self.__owner_name = self.check_owner_name(owner_name)
-        self.__balance = self.check_money((balance))
+        self.__balance = self.check_money(balance)
 
     def __str__(self):
         return f'Account {self.__id}: Owner name - {self.__owner_name}, Balance: {self.__balance}'
@@ -27,14 +27,6 @@ class BankAccount:
             raise Exception("you don't have that much money")
         self.__balance -= self.check_money(money)
         print(f'you have successfully withdrawn {money} from your account')
-
-    # @property
-    # def id(self):
-    #     return self.__id
-    #
-    # @id.setter
-    # def id(self, new_id):
-    #     self.__id = self.check_id(new_id)
 
     @property
     def owner_name(self):
@@ -67,8 +59,8 @@ class BankAccount:
             raise TypeError('owner_name should be of type str')
         elif not owner_name.replace(" ", "").isalpha():
             raise ValueError('owner_name should consist of only letters')
-        elif len(owner_name.split()) != 2:
-            raise ValueError('owwner_name should consist of first name and surname')
+        elif len(owner_name.split()) != 3:
+            raise ValueError('owwner_name should consist of three words')
         else:
             return owner_name
 
@@ -80,10 +72,3 @@ class BankAccount:
             raise ValueError('amount of money should be positive')
         else:
             return balance
-
-
-
-
-
-
-

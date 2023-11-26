@@ -5,7 +5,7 @@ class Bank:
     def __init__(self):
         self.__accounts_list = dict()
 
-    def add_account(self, owner_name, balanceS = 0.0):
+    def add_account(self, owner_name, balance = 0.0):
         acc = BankAccount(owner_name, balance)
         self.__accounts_list[acc.get_id()] = acc
 
@@ -21,4 +21,3 @@ class Bank:
     @property
     def account_list(self):
         return self.__accounts_list
-
